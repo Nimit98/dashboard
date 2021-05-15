@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import AttentionPer from './components/AttentionPer';
+import AttentionPer from './components/AttentionPer/AttentionPer';
+import HappinessPer from './components/HappinessPer/HappinessPer';
 
 const url = "http://localhost:4000/api/analytics";
 
@@ -41,6 +42,7 @@ function App() {
   return (
     <div id="parent">
       <AttentionPer data_new={data_new}/>
+      <HappinessPer data_new={data_new}/>
     </div>
   );
 }
