@@ -19,7 +19,6 @@ const AttentionPer = ({data_new}) => {
   row1.video_id.localeCompare(row2.video_id)).map(d => ({
     video_id: d.video_id,
     seconds: d.seconds,
-    user_id: d.user_id,
     attention: d.attention
   }));
 

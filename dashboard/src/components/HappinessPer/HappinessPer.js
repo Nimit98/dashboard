@@ -19,7 +19,6 @@ const HappinessPer = ({data_new}) => {
   .map(d => ({
     video_id: d.video_id,
     seconds: d.seconds,
-    user_id: d.user_id,
     happiness: d.happiness
   }));
 
@@ -31,36 +30,36 @@ const HappinessPer = ({data_new}) => {
    //eslint-disable-next-line
     .reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
  
-  const attVid1 = dataSorted.filter(d => d.video_id==='vid_001')
+  const happVid1 = dataSorted.filter(d => d.video_id==='vid_001')
   //eslint-disable-next-line
     .filter(d => d.happiness===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
 
-  const attVid2 = dataSorted.filter(d => d.video_id==='vid_002')
+  const happVid2 = dataSorted.filter(d => d.video_id==='vid_002')
    //eslint-disable-next-line
     .filter(d => d.happiness===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
 
   let final_data = [];
   let i=0,j=0,k=0,l=0,m=0;
-  while(i<Math.max(Object.keys(attVid1).length, Object.keys(attVid2).length, Object.keys(totalVid1).length,
+  while(i<Math.max(Object.keys(happVid1).length, Object.keys(happVid2).length, Object.keys(totalVid1).length,
   Object.keys(totalVid2).length)) {
     let x1, x2;
 
-    // console.log(m,parseInt(Object.keys(attVid2)[m]), i, parseInt(Object.keys(totalVid2)[k]));
+    // console.log(m,parseInt(Object.keys(happVid2)[m]), i, parseInt(Object.keys(totalVid2)[k]));
 
-    if(parseInt(Object.keys(totalVid1)[j]) === i && parseInt(Object.keys(attVid1)[l])===i) {
-      x1=Math.round(Object.values(attVid1)[l]/Object.values(totalVid1)[j]*10000)/100;
+    if(parseInt(Object.keys(totalVid1)[j]) === i && parseInt(Object.keys(happVid1)[l])===i) {
+      x1=Math.round(Object.values(happVid1)[l]/Object.values(totalVid1)[j]*10000)/100;
       j++;
       l++;
     } else {
       x1=0;
       if(parseInt(Object.keys(totalVid1)[j]) <= i){
       j++;}
-      if(parseInt(Object.keys(attVid1)[l]) <= i){
+      if(parseInt(Object.keys(happVid1)[l]) <= i){
       l++;}
     }
 
-    if(parseInt(Object.keys(totalVid2)[k]) === i && parseInt(Object.keys(attVid2)[m])===i) { 
-      x2=Math.round(Object.values(attVid2)[m]/Object.values(totalVid2)[k]*10000)/100;
+    if(parseInt(Object.keys(totalVid2)[k]) === i && parseInt(Object.keys(happVid2)[m])===i) { 
+      x2=Math.round(Object.values(happVid2)[m]/Object.values(totalVid2)[k]*10000)/100;
       k++;
       m++;
     } else {
@@ -68,7 +67,7 @@ const HappinessPer = ({data_new}) => {
       if(parseInt(Object.keys(totalVid2)[k]) <= i) {
         k++;
       }
-      if(parseInt(Object.keys(attVid2)[m]) <= i) {
+      if(parseInt(Object.keys(happVid2)[m]) <= i) {
         m++;
       }
     }
@@ -81,7 +80,7 @@ const HappinessPer = ({data_new}) => {
     i++;
   }
 
-  // console.log(Object.keys(attVid2), Object.values(attVid2));
+  console.log(final_data);
 
   return (
     <div id ="hapPer">
