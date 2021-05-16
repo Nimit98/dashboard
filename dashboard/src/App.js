@@ -4,6 +4,7 @@ import AttentionPer from './components/AttentionPer/AttentionPer';
 import HappinessPer from './components/HappinessPer/HappinessPer';
 import HappinessHist from './components/HappinessHist/HappinessHist';
 import Viewership from './components/Viewership/Viewership';
+import TreeMap from './components/TreeMap/TreeMap';
 
 const url = "http://localhost:4000/api/analytics";
 
@@ -46,6 +47,7 @@ function App() {
       <AttentionPer data_new={data_new}/>
       <HappinessPer data_new={data_new}/>
       <Viewership data_new={data_new}/>
+      <TreeMap data_new={data_new}/>
       <HappinessHist data_new={data_new}/>
     </div>
   );

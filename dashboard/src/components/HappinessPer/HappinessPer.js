@@ -53,9 +53,11 @@ const HappinessPer = ({data_new}) => {
     } else {
       x1=0;
       if(parseInt(Object.keys(totalVid1)[j]) <= i){
-      j++;}
+        j++;
+      }
       if(parseInt(Object.keys(happVid1)[l]) <= i){
-      l++;}
+        l++;
+      }
     }
 
     if(parseInt(Object.keys(totalVid2)[k]) === i && parseInt(Object.keys(happVid2)[m])===i) { 
@@ -80,7 +82,7 @@ const HappinessPer = ({data_new}) => {
     i++;
   }
 
-  console.log(final_data);
+  // console.log(final_data);
 
   return (
     <div id ="hapPer">

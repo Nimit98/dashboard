@@ -28,6 +28,7 @@ const Viewership = ({data_new}) => {
     .reduce((prev,cur) => (prev[cur.dateofview] = ++prev[cur.dateofview] || 1, prev), {});
 
   let final_data=[];
+
   for(let i=0;i<Math.max(Object.keys(totalMale).length,Object.keys(totalFemale).length);i++) {
       final_data.push({
           date:Object.keys(totalFemale)[i],
@@ -36,8 +37,7 @@ const Viewership = ({data_new}) => {
           total: Object.values(totalMale)[i]+Object.values(totalFemale)[i]
       });
   }
-
-  console.log(final_data);
+  // console.log(totalMale);
 
   return (
     <div id ="Viewership">

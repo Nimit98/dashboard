@@ -38,8 +38,8 @@ const HappinessHist = ({data_new}) => {
    //eslint-disable-next-line
     .filter(d => d.happiness===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
 
-  console.log(hapMale);
-  console.log(hapFemale);
+  // console.log(hapMale);
+  // console.log(hapFemale);
 
   let final_data = [];
   let i=0,j=0,k=0,l=0,m=0;
