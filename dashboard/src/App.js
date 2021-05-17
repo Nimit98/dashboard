@@ -3,6 +3,7 @@ import "./App.css";
 import AttentionPer from './components/AttentionPer/AttentionPer';
 import HappinessPer from './components/HappinessPer/HappinessPer';
 import HappinessHist from './components/HappinessHist/HappinessHist';
+import AttentionHist from './components/AttentionHist/AttentionHist';
 import Viewership from './components/Viewership/Viewership';
 import TreeMap from './components/TreeMap/TreeMap';
 
@@ -49,6 +50,7 @@ function App() {
       <Viewership data_new={data_new}/>
       <TreeMap data_new={data_new}/>
       <HappinessHist data_new={data_new}/>
+      <AttentionHist data_new={data_new}/>
     </div>
   );
 }
