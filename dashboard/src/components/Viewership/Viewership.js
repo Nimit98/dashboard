@@ -43,7 +43,7 @@ const Viewership = ({data_new}) => {
     <div id ="Viewership">
     <h1 id="ViewerHeading">Viewership Line Graph</h1>
     <LineChart 
-      height={300} 
+       height={500} 
       width={700} 
       margin={{ top: 20, right: 20, left: 20, bottom: 20 }} 
       data={final_data}

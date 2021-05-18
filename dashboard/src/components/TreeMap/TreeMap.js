@@ -59,8 +59,8 @@ const color=['#0000CD','#191970'];
 const labels=['<20','21-30','31-40','41+'];
 
 const TreeMap = ({data_new}) => {
-    const width=750
-    const height=400
+    const width=700
+    const height=500
     const dataSorted = data_new.sort((row1,row2) => 
         row1.gender.localeCompare(row2.gender) 
         || row1.age - row2.age)

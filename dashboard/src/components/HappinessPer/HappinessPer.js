@@ -88,7 +88,7 @@ const HappinessPer = ({data_new}) => {
     <div id ="hapPer">
     <h1 id="HapPerFormat">Happiness %</h1>
     <AreaChart 
-      height={300} 
+       height={500} 
       width={700} 
       margin={{ top: 20, right: 20, left: 20, bottom: 20 }} 
       data={final_data}

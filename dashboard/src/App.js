@@ -45,12 +45,24 @@ function App() {
 
   return (
     <div id="parent">
+      <div className="graph">
       <AttentionPer data_new={data_new}/>
+      </div> 
+      <div className="graph">
       <HappinessPer data_new={data_new}/>
+      </div>
+      <div className="graph">
       <Viewership data_new={data_new}/>
+      </div>
+      <div className="graph">
       <TreeMap data_new={data_new}/>
+      </div>
+      <div className="graph">
       <HappinessHist data_new={data_new}/>
+      </div>
+      <div className="graph">
       <AttentionHist data_new={data_new}/>
+      </div>
     </div>
   );
 }
