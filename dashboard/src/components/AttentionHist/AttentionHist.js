@@ -11,7 +11,7 @@ import React from 'react';
 
 import * as d3ar from 'd3-array';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-const HappinessHist = ({data_new}) => {
+const AttentionHist = ({data_new}) => {
 
   const dataSorted = data_new
     .sort((row1, row2) => row1.seconds - row2.seconds 
@@ -19,7 +19,7 @@ const HappinessHist = ({data_new}) => {
     .map(d => ({
         seconds: d.seconds,
         gender: d.gender,
-        happiness: d.happiness
+        attention: d.attention
     }));
 
   // console.log(dataSorted);
@@ -34,11 +34,11 @@ const HappinessHist = ({data_new}) => {
  
   const hapMale = dataSorted.filter(d => d.gender==='male')
   //eslint-disable-next-line
-    .filter(d => d.happiness===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
+    .filter(d => d.attention===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
 
   const hapFemale = dataSorted.filter(d => d.gender==='female')
    //eslint-disable-next-line
-    .filter(d => d.happiness===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
+    .filter(d => d.attention===1).reduce((prev,cur) => (prev[cur.seconds] = ++prev[cur.seconds] || 1, prev), {});
     console.log(totalFemale)  
 console.log(hapFemale)
   // console.log(hapMale);
@@ -116,14 +116,14 @@ let final_female_data=femaleBins.reduce((acc, el) => {
 },[]);
 
 for(let i=0;i<11;i++){
-final_data.push({happiness:i*10,male:final_male_data[i].y,female:final_female_data[i].y})
+final_data.push({attention:i*10,male:final_male_data[i].y,female:final_female_data[i].y})
 }
 console.log(final_data)
   // console.log(Object.keys(attVid2), Object.values(attVid2));
 
   return (
     <div id ="hapPer">
-    <h1 id="HapPerFormat">Happiness Histogram</h1>
+    <h1 id="HapPerFormat">Attention Histogram</h1>
     <BarChart
          height={500} 
          width={700} 
@@ -134,8 +134,8 @@ console.log(final_data)
             
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis
-            label={{ value: 'Happiness %', position: 'inside', dy: 15 }}
-          dataKey="happiness" />
+            label={{ value: 'Attention %', position: 'inside', dy: 15 }}
+          dataKey="attention" />
           <YAxis label={{ value: 'Viewer Count', angle: -90, position: 'insideLeft', offset: 20 }} />
           <Tooltip />
           <Legend layout="vertical" verticalAlign="top" align="right"height={36} iconType="square" />
@@ -156,7 +156,7 @@ console.log(final_data)
         label={{ value: 'Video-Instant in seconds', position: 'inside', offset: 0 }}
         name="seconds"  
         />
-      <YAxis tickLine={false} label={{ value: 'Happiness%', angle: -90, position: 'insideLeft', offset: 20 }} tickMargin={0}/>
+      <YAxis tickLine={false} label={{ value: 'Attention%', angle: -90, position: 'insideLeft', offset: 20 }} tickMargin={0}/>
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <Tooltip/>
       <Legend verticalAlign="top" height={36} iconType="square"/>
@@ -167,4 +167,4 @@ console.log(final_data)
   );
 }  
 
-export default HappinessHist;
+export default AttentionHist;
