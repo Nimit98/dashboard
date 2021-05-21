@@ -3,12 +3,18 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-#parent{
+#parent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 }
-.graph{
-margin: 20px auto;
+.graph {
+  margin: 20px auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1550px !important;
+  }
 }
