@@ -3,7 +3,7 @@ import ReactPlayer from "react-player";
 import Controls from "./Controls/Controls";
 import "./Metrics.css";
 
-function Metrics() {
+function Metrics({ handleEmotions, handleMetrics }) {
   const [videoFilePath, setVideoFilePath] = useState(null);
 
   const handleVideoUpload = (event) => {
@@ -43,7 +43,7 @@ function Metrics() {
       <br />
       <br />
 
-      <Controls />
+      <Controls handleEmotions={handleEmotions} handleMetrics={handleMetrics} />
     </div>
   );
 }

@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import $ from "jquery";
 
-function Controls() {
+function Controls({ handleEmotions, handleMetrics }) {
   const handleClick = (e) => {
     $(e.target).toggleClass("btn-controls-white btn-controls-primary");
+    const white = e.target.classList.contains("btn-controls-white");
+    const d = e.target.innerHTML;
+    if (
+      d == "Eye Pupil" ||
+      d == "Eye Gaze" ||
+      d == "Smile" ||
+      d == "Attention" ||
+      d == "Happiness"
+    )
+      handleEmotions(white, d);
+    else if (
+      d == "% of People" ||
+      d == "Average" ||
+      d == "Max" ||
+      d == "EmotionalAll"
+    )
+      handleMetrics(white, d);
   };
 
   return (

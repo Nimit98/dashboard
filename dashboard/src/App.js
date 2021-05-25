@@ -8,12 +8,15 @@ import AttentionHist from "./components/AttentionHist/AttentionHist";
 import Viewership from "./components/Viewership/Viewership";
 import TreeMap from "./components/TreeMap/TreeMap";
 import Metrics from "./components/Metrics/Metrics";
+import Graphs from "./components/Graphs/Graphs";
 
 const url = "http://localhost:4000/api/analytics";
 
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [emotions, setEmotions] = useState([]);
+  const [metrics, setMetrics] = useState([]);
 
   useEffect(() => {
     fetch(url)
@@ -44,31 +47,30 @@ function App() {
     age: d.age,
   }));
 
+  const handleEmotions = (white, d) => {
+    if (white) {
+      setEmotions(emotions.filter((item) => item != d));
+    } else {
+      setEmotions((emotions) => [...emotions, d]);
+    }
+  };
+
+  const handleMetrics = (white, d) => {
+    if (white) setMetrics(metrics.filter((item) => item != d));
+    else setMetrics((metrics) => [...metrics, d]);
+  };
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-4">
-          <Metrics />
+          <Metrics
+            handleMetrics={handleMetrics}
+            handleEmotions={handleEmotions}
+          />
         </div>
-        <div className="col" id="parent">
-          <div className="graph">
-            <AttentionPer data_new={data_new} />
-          </div>
-          <div className="graph">
-            <HappinessPer data_new={data_new} />
-          </div>
-          <div className="graph">
-            <Viewership data_new={data_new} />
-          </div>
-          <div className="graph">
-            <TreeMap data_new={data_new} />
-          </div>
-          <div className="graph">
-            <HappinessHist data_new={data_new} />
-          </div>
-          <div className="graph">
-            <AttentionHist data_new={data_new} />
-          </div>
+        <div className="col">
+          <Graphs data_new={data_new} metrics={metrics} emotions={emotions} />
         </div>
       </div>
     </div>
